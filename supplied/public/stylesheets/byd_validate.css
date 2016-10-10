@@ -1,0 +1,8 @@
+span.error {
+  /* background:url("../js/jquery-validation/1.10.0/images/unchecked.gif") no-repeat 0px 0px; */
+  /* margin-left: 1em; */
+  font-weight: bold;
+  color: #EA5200;
+  /* padding: 0px 0px 2px 16px; */
+}
+form input.error,select.error,textarea.error { border:solid 1px red;}

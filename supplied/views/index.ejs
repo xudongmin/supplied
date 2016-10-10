@@ -1,0 +1,400 @@
+<%- include header %>
+		<div class="header navbar navbar-default navbar-top byd-header">
+	  		<div class="header navbar navbar-default navbar-top byd-header">
+	  			<div class="container">
+	  				<div class="navbar-header header-left">
+	  					<img src="/images/logo.png" alt="" class="pull-left"/>
+	  					<h3 class="pull-left"><%= title %></h3>
+	  					<button type="button" class="navbar-toggle" data-target="#navbar-collapse" data-toggle="collapse">
+	                        <span class="sr-only">Toggle navigation</span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                    </button>
+	  				</div>
+	  				<div class="collapse navbar-collapse pull-right" id="navbar-collapse">
+						<div class="header-right">
+							<ul class="nav navbar-nav navbar-right">
+		                        <li><a href="/">首页</a></li>
+		                        <li><a href="#" target="_blank">注册</a></li>
+		                        <li class="dropdown dropdown-li">
+		                            <a href="javascript:void(0);" class="showloginmodal showmodala dropdown-show mousewheeldisabled">登陆</a>
+		                        </li>
+		                        <li><a href="javascript:void(0);" class="showsystemmodal showmodala">系统公告</a></li>
+		                        <li><a href="javascript:void(0);" class="showhelpmodalpa showmodala helplink">帮助</a></li>
+	                    	</ul>
+						</div>
+	  				</div>
+	  			</div>
+	  		</div>	  	
+	    </div>
+	    <div id="myCarousel" class="carousel slide banner-slide">
+	        <div class="carousel-inner">
+	            <div class="item active">
+	                <a href="http://www.byd.cn/" target='_blank'><img src="/images/banner-1.jpg" alt="" class="originimg"/></a>
+	            </div>
+	            <div class="item">
+	                <a href="http://www.byd.cn/" target='blank'><img src="/images/banner-2.jpg" alt="" class="originimg"/></a>
+	            </div>
+	            <div class="item">
+	                <a href="http://www.byd.cn/" target='blank'><img src="/images/banner-3.jpg" alt="" class="originimg"/></a>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="content belogin-content addnewsparent">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-4 content-detail notice">
+	                    <h4>采购招标公告</h4>
+	                    <a href="javascript:void(0);" class="showannoumcementmodal showmodala posi-a"><span class="icon-plus more"><i>更多...</i></span></a>
+	                    <ul class="list-group content-ul">
+	                    <% zbannunces.forEach(function (zbannunce, index) { %>
+	                    <li><a href="/SupplierSignup/<%= zbannunce._id%>" class="linkshowmodal" target="_blank"><%= zbannunce.zb_project_description %></a></li>
+                    	<% }) %>
+	                    </ul>
+	                </div>
+	                <div class="col-md-4 content-detail systemup">
+	                    <h4>采购政策</h4>
+	                    <a href="javascript:void(0);" class="showpolicymodal showmodala policylink posi-a"><span class="icon-plus more"><i>更多...</i></span></a>
+	                    <ul class="list-group content-ul">
+	                    </ul>
+	                </div>
+	                <div class="col-md-4 content-detail news">
+	                    <h4>比亚迪最新动态</h4>
+	                    <a href="javascript:void(0);" class="shownewsmodal showmodala posi-a"><span class="icon-plus more"><i>更多...</i></span></a>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="footer">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-4 nativelink">
+	                    <h4>相关链接</h4>
+	                    <ul>
+	                        <li><a href="http://www.byd.cn/" target="_blank">比亚迪官网</a></li>
+	                        <li><a href="http://www.bydauto.com.cn/" target="_blank">比亚迪汽车官方网站</a></li>
+	                        <li><a href="http://club.bydauto.com.cn/portal.php" target="_blank">迪粉汇——成就梦想</a></li>
+	                    </ul>
+	                </div>
+	                <div class="col-md-4">
+	                    <h4 class="division"><img src="../images/division.png" alt=""/><span>比亚迪采购处</span></h4>
+	                    <ul>
+	                        <li>在线投诉反馈： <i class="icon-comment-alt text-warning" style="margin-right: 5px;"></i><a href="javascript:void(0);" class="showcpmplaintmodal showmodala removeaddfiletable" style="margin-right: 5px;">投诉</a> <i class="icon-search" style="margin-right: 5px;"></i><a href="javascript:void(0);" class="showreplyquerymodal showmodala reloadquery">查询</a></li>
+	                        <li>采购处联系窗口：0755-89888888-62506</li>
+	                        <li>采购处联系邮箱：lu.liping@byd.com</li>
+	                        <li>采购处投诉电话：0755-89888888-66390</li>
+	                        <li>采购处投诉邮箱：cgts@byd.com</li>
+	                    </ul>
+	                </div>
+	                <div class="col-md-4 chatimg">
+	                    <h4>审查处联系方式</h4>
+	                    <ul>
+	                        <li>集团投诉电话：<br/><span>0755-89888888-62299</span></li>
+	                        <li>集团投诉邮箱：<br/><span>tousu@byd.com</span></li>
+	                    </ul>
+	                    <img src="../images/chatshencha.jpg" alt=""/>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+    <!-- 模态框-->
+        <!--采购招标公告列表-->
+        <div class="modalvisble showannoumcementmodal showmodal provide-modal annoumcementlist" id="Tender">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h3 class="modal-title">采购招标公告</h3>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer purchas-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--登录框-->
+        <form id="form" action="">
+            <div class="login-modal showloginmodal showmodal" id="myLoginmodal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="dropdown-win">
+                                <li>
+                                    <b>登陆账号:</b>
+                                    <div class="has-feedback feedback-count">
+                                        <input type="text" class="form-control" placeholder="请输入您的用户名" id="userName" name="userName"/>
+                                        <span class="icon-user form-control-feedback text-primary"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b>登录密码:</b>
+                                    <div class="has-feedback feedback-count">
+                                        <input type="password" placeholder="请输入您的登录密码" class="form-control" id="password" name="password"
+                                               />
+                                        <span class="icon-lock form-control-feedback text-primary"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer login-modal-footer">
+                            <input type="submit" class="login btn btn-warning form-control" value="登陆">
+                            <a href="${serverName}OA_HTML/RF.jsp?function_id=28846" class="forgotpassword">忘记密码</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!--投诉反馈-->
+        <form id="complaintForm" action="" method="post" enctype="multipart/form-data">
+            <div class="modalvisble provide-modal Complaint-modal showcpmplaintmodal showmodal compaintmodal2" id="Complaint">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h3 class="modal-title" id="myModalLabel">投诉与反馈</h3>
+                        </div>
+                        <div class="modal-body">  
+                            <span class="text-complaint">本投诉窗口由采购处总经理直属的审核管理部门统一管理，我们将承诺保密投诉人信息，请务必保证投诉事项真实性。</span>
+                            <table class="table-striped table-bordered table-responsive Complaint-table">
+                                <tr>
+                                    <td class="firsttd">投诉反馈类型:</td>
+                                    <td style="text-align: left;padding-left: 12px;">投诉: <input type="radio" name="comp_feed_type" value="投诉" checked class="comfeedradio comradio"/> 反馈: <input type="radio" name="comp_feed_type" value="反馈" class="comfeedradio feedradio"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="firsttd"><span class="text-danger">*</span>类型:</td>
+                                    <td style="text-align: left;">
+                                        <select name="ts_type" id="ts_type">
+                                            <option>违反公平公正原则</option>
+                                            <option>收受财物</option>
+                                            <option>损害比亚迪公司利益</option>
+                                            <option>其他</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="firsttd"><span class="text-danger">*</span>标题:</td>
+                                    <td><input type="text" placeholder="请输入投诉标题" name="ts_title" id="ts_title" class="required"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="firsttd"><span class="text-danger">*</span>内容:</td>
+                                    <td><textarea class="required" cols="5" rows="6" placeholder="请输入投诉内容" name="ts_description" id="ts_description"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td class="firsttd">公司名称:</td>
+                                    <td><input type="text" placeholder="请输入公司名称" name="ts_company" id="ts_company"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="firsttd">联系人:</td>
+                                    <td><input type="text" placeholder="请输入联系人姓名" name="ts_contact" id="ts_contact"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="firsttd"><span class="text-danger">*</span>联系电话:</td>
+                                    <td><input type="text" placeholder="请输入联系电话" name="ts_tel" id="ts_tel" class="required telnumsvalidate"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="firsttd"><span class="text-danger">*</span>E-mail:</td>
+                                    <td><input type="text" placeholder="请输入邮箱地址" name="ts_mail" id="ts_mail" class="required email"/></td>
+                                </tr>
+                            </table>
+                            <table class="table table-striped table-bordered table-responsice addfiletable">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:19.8%;" class="firsttd">
+                                            上传佐证资料
+                                        </td>
+                                        <td>
+                                            <span class="changefilebtn">
+                                                <input type="file" name="tsfileinput" id="ts_file_input" class="addfiletable" />
+                                                <button type="button" onclick="upload_ts_file()" class="submitfile">上传</button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer purchas-footer">
+                            <input type="reset" value="重置" class="btn btn-danger btn-sm"/>
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+                            <input class="btn btn-warning singupbtn btn-sm" value="提交反馈" type="button">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!--系统公告列表-->
+        <div class="modalvisble provide-modal showsystemmodal showmodal systemshowlist" id="System-annumce">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h3 class="modal-title">系统公告</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="content-detail">
+                            <ul class="list-group content-ul">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer purchas-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--反馈回复情况-->
+        <div class="modalvisble showreplyquerymodal showmodal provide-modal samenum" id="Reply">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h3 class="modal-title">投诉处理(回复)情况查询</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row checkinputs">
+                            <div class="col-md-12">
+                                <ul class="queryul">
+                                    <li><span>回执编码: </span><input type="text" name="tts_title" id="tts_code"/></li>
+                                    <li style="padding-left: 25px;">
+                                        <button class="btn btn-default btn-sm" id="ts_find">
+                                            <span class="icon-search query-search"></span>
+                                            搜索
+                                        </button>
+                                        <input type="reset" class="btn btn-danger btn-sm" placeholder="重置"/>
+                                    </li>
+                                </ul>
+                            </div>                            
+                        </div>
+                        <div class="over-long">
+                            <table class="table table-bordered table-striped table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>投诉反馈类型</th>
+                                        <th>类型</th>
+                                        <th>标题</th>
+                                        <th>投诉人</th>
+                                        <th>日期</th>
+                                        <th>是否回复</th>
+                                        <th>回复时间</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer purchas-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+                    </div>  
+                </div>
+            </div>
+        </div>
+
+        <!--采购政策查看列表-->
+        <div class="modalvisble provide-modal showpolicymodal showmodal systemup" id="Purchasing-lists">
+            <div class="modal-dialog">
+                <div class="modal-content singup-modal over-long">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h3 class="modal-title">采购政策</h3>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer purchas-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+                    </div>  
+                </div>
+            </div>
+        </div>
+
+         <!--供应商帮助查看列表-->
+        <div class="modalvisble showhelpmodalpa showmodal provide-modal" id="Supplier-help-lists">
+            <div class="modal-dialog">
+                <div class="modal-content singup-modal over-long">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h3 class="modal-title">供应商帮助</h3>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group content-ul">
+                        </ul>
+                    </div>
+                    <div class="modal-footer purchas-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <!--最新动态列表-->
+        <div class="provide-modal addpages addnewsmodal shownewsmodal showmodal" id="news">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h3 class="modal-title">最新动态</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="content-detail news">
+                        </div>
+                    </div>
+                    <div class="modal-footer purchas-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--底部最新动态-->
+        <div class="bottomnews">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">系统公告</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <a href="" class="showannoucement showmodala">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/javascripts/jquery-1.11.3.min.js"></script>
+	    <script src="/javascripts/jquery.uploadify-v3.2/jquery.uploadify.js"></script>
+		<script src="/javascripts/jquery.uploadify-v3.2/swfobject.js"></script>
+		<script src="/javascripts/jquery.validate.min.js"></script>
+		<script src="/javascripts/messages_bs_zh.js"></script>
+		<script src="/javascripts/jquery.metadata.js"></script>
+		<script src="/javascripts/bootstrap.min.js"></script>
+		<script src="/javascripts/bootstrap-datetimepicker.min.js"></script>
+		<script src="/javascripts/bootstrap-datetimepicker.zh-CN.js"></script>
+		<script src="/javascripts/main.js"></script>
+		<script src="/javascripts/indexsrm.js"></script>
+<%- include footer %>
