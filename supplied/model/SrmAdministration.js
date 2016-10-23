@@ -19,6 +19,7 @@ var pool = poolModule.Pool({
 
 var ObjectID = require('mongodb').ObjectID;
 
+//招标公告发布方法
 function ZbannuncePost(zb_type, zb_project_description, zb_project_no, zb_project_city, zb_project_date, zb_project_address, zb_flie_je, zb_vendor_bond, zb_corporation, zb_buyer, zb_contactor, zb_tel, zb_mail, zb_answer_date, zb_bid_start_date, zb_bid_end_date, zb_open_date, zb_appeal_date, zb_enrol_end_date, zb_memo, zbfileinput) {
 	this.zb_type = zb_type; //招标类型
 	this.zb_project_description = zb_project_description; //项目名称
@@ -125,12 +126,51 @@ ZbannuncePost.getFive = function(zb_project_description, page, callback) {
 			if (zb_project_description) {
 				query.zb_project_description = zb_project_description;
 			}
+
 			//使用 count 返回特定查询招标文档个数 total
 			collection.count(query, function (err, total) {
 				//根据 query 对象查询，并跳过前 (page-1)*5 个结果，返回之后的 5 个结果
 				collection.find(query, {
 					skip: (page - 1)*5,
 					limit: 5
+				}).sort({
+					time: -1
+				}).toArray(function (err, docs) {
+					pool.release(mongodb);
+					if (err) {
+						return callback(err);
+					}
+					callback(null, docs, total);
+				});
+			});
+		});
+	});
+};
+
+//一次获取10篇招标信息
+ZbannuncePost.getTen = function(zb_project_description, page, callback) {
+	//打开数据库
+	pool.acquire(function (err, mongodb) {
+		if (err) {
+			return callback(err);
+		}
+		//读取  zbannunces 集合
+		mongodb.collection('zbannunces', function (err, collection) {
+			if (err) {
+				pool.release(mongodb);
+				return callback(err);
+			}
+			var query = {};
+			if (zb_project_description) {
+				query.zb_project_description = zb_project_description;
+			}
+
+			//使用 count 返回特定查询招标文档个数 total
+			collection.count(query, function (err, total) {
+				//根据 query 对象查询，并跳过前 (page-1)*10 个结果，返回之后的 10 个结果
+				collection.find(query, {
+					skip: (page - 1)*10,
+					limit: 10
 				}).sort({
 					time: -1
 				}).toArray(function (err, docs) {
@@ -171,3 +211,4 @@ ZbannuncePost.getOne = function(_id, callback) {
 		});
 	});
 };
+

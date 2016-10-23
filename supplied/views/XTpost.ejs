@@ -1,0 +1,35 @@
+<%- include header %>
+<div class="modalvisble provide-modal showsystemmodal systemshowlist" id="System-annumce">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><%= title %></h3>
+            </div>
+            <div class="modal-body">
+                <div class="content-detail">
+                    <ul class="list-group content-ul">
+                        <% gonggaoinfos.forEach(function (gonggaoinfo, index) { %>
+                            <li>
+                                <a href="/XTpost/<%= gonggaoinfo._id%>" class="linkshowmodal" target="_blank"><%= gonggaoinfo.gonggaotitle %></a>
+                                <span class="date-annuce pull-right"><%= gonggaoinfo.time.day %></span>
+                            </li>
+                        <% }) %>
+                    </ul>
+                    <%- include paging %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/javascripts/jquery-1.11.3.min.js"></script>
+<script src="/javascripts/jquery.uploadify-v3.2/jquery.uploadify.js"></script>
+<script src="/javascripts/jquery.uploadify-v3.2/swfobject.js"></script>
+<script src="/javascripts/jquery.validate.min.js"></script>
+<script src="/javascripts/messages_bs_zh.js"></script>
+<script src="/javascripts/jquery.metadata.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/bootstrap-datetimepicker.min.js"></script>
+<script src="/javascripts/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="/javascripts/main.js"></script>
+<script></script>
+<%- include footer %>

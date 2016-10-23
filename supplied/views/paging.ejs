@@ -1,0 +1,29 @@
+<ul class="pagination pull-right pagination-sm page-nums">
+	<li class="pagereview first">
+		<a href="?p=1">首页</a>
+	</li>
+	<% if (isFirstPage) { %>
+		<li class="pagereview previous">
+			<a href="?p=1">上一页</a>
+		</li>
+	<% } else { %>
+		<li class="pagereview previous">
+			<a href="?p=<%= page-1 %>">上一页</a>
+		</li>
+	<% } %>
+	<% if (isLastPage) { %>
+		<li class="pagereview next">
+			<a href="?p=<%= totalpages %>">下一页</a>
+		</li>
+	<% } else { %>
+		<li class="pagereview next">
+			<a href="?p=<%= page+1 %>">下一页</a>
+		</li>
+	<% } %>
+	<li class="pagereview last">
+		<a href="?p=<%= totalpages %>">尾页</a>
+	</li>
+	<li class="numinput"><a href="javascript:void(0);"><input type="text" value="1" class="inputshow"></a></li>
+	<li class="pagereview location"><a href="javascript:void(0);">跳转</a></li>
+	<li><a href="javascript:void(0);">共 <span class="totalpagenum"><%= totalpages %></span> 页</a></li>
+</ul>

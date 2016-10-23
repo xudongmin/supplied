@@ -1,0 +1,106 @@
+<%- include header %>
+<div class="samenum querydetail" id="num1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+               <h4><%= title %></h4> 
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul>
+                            <li>
+                                <span>公告类型: </span><input type="text" name="tzb_type" id="tzb_type"/>
+                            </li>
+                            <li>
+                                <span>项目名称: </span><input type="text" name="tzb_project_description" id="tzb_project_description"/>
+                            </li>
+                            <li>
+                                <span>项目编号: </span><input type="text" name="tzb_project_no" id="tzb_project_no"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li>
+                                <span>报名截止时间: </span><input size="16" name="tzb_enrol_end_date" id="tzb_enrol_end_date" class="datetimepicker" type="text" readonly>
+                            </li>
+                            <li>
+                                <span>公告发布时间: </span><input size="16" name="tzb_creation_date" id="tzb_creation_date" class="datetimepicker" type="text" readonly>
+                            </li>
+                            <li>
+                                <span>招标地区: </span><input type="text" name="tzb_project_address" id="tzb_project_address"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li>
+                                <span>发布人: </span><input type="text" name="tzb_start_person" id="tzb_start_person"/>
+                            </li>
+                            <li>
+                                <span>资源开发/采购专责: </span><input type="text" name="tzb_buyer" id="tzb_buyer"/>
+                            </li>                                    
+                        </ul>
+                        <div class="buttons pull-right">
+                            <button class="btn btn-default btn-sm" id="submit_zbFind">
+                                <span class="icon-search"></span>
+                                查询
+                            </button>
+                            <input type="reset" class="btn btn-danger btn-sm" placeholder="重置"/>
+                        </div>
+                    </div>                            
+                </div>
+                <div class="over-long">
+                    <table class="table table-bordered table-striped table-responsive">
+                        <thead>
+                            <tr>
+                                <th>招标类型</th>
+                                <th>项目名称</th>
+                                <th>项目编号</th>
+                                <th>招标地区</th>
+                                <th>报名截止时间</th>
+                                <th>公告发布时间</th>
+                                <th>资源开发/采购专责</th>
+                                <th>报名数量</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% zbannunces.forEach(function (zbannunce, index) { %>
+                            <tr>
+                                <td><%= zbannunce.zb_type %></td>
+                                <td><a href="/SupplierSignup/<%= zbannunce._id %>" class="text-primary" target="_blank"><%= zbannunce.zb_project_description %></a></td>
+                                <td><%= zbannunce.zb_project_no %></td>
+                                <td><%= zbannunce.zb_project_city %></td>
+                                <td><%= zbannunce.zb_bid_end_date %></td>
+                                <td><%= zbannunce.time.minute %></td>
+                                <td><%= zbannunce.zb_buyer %></td>
+                                <td class="number">0</td>
+                                <td>正在报名</td>
+                                <td class="lasttd">
+                                    <a href="/SupplierSignup/<%= zbannunce._id %>">查看报名情况</a><a href="javascript:void(0);" class="remove2">删除</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+                <%- include paging %>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/javascripts/jquery-1.11.3.min.js"></script>
+<script src="/javascripts/jquery.uploadify-v3.2/jquery.uploadify.js"></script>
+<script src="/javascripts/jquery.uploadify-v3.2/swfobject.js"></script>
+<script src="/javascripts/jquery.validate.min.js"></script>
+<script src="/javascripts/messages_bs_zh.js"></script>
+<script src="/javascripts/jquery.metadata.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/bootstrap-datetimepicker.min.js"></script>
+<script src="/javascripts/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="/javascripts/main.js"></script>
+<script></script>
+<%- include footer %>

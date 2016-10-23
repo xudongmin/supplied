@@ -1,0 +1,38 @@
+<%- include header %>
+<div class="provide-modal showannoucement" id="announcement" style="display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content singup-modal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                </button>
+                <h4><%= gonggaoinfo.gonggaotitle %></h4>
+            </div>
+            <div class="modal-body">
+                <div class="modalbody-title">
+                    <span class="modalbody-titleleft">
+                        发布人 : <span class="name"><%= gonggaoinfo.gonggaobuilder %></span>
+                    </span>
+                    <span class="modalbody-titleright">
+                        发布时间 : <span class="date"><%= gonggaoinfo.time.day%></span>
+                    </span>
+                </div>
+                <div class="modalbody-content content-detail"><%- gonggaoinfo.gonggaocontent %></div>
+                <div class="files">
+                    附件：<span class="filedisplay">无</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/javascripts/jquery-1.11.3.min.js"></script>
+<script src="/javascripts/jquery.uploadify-v3.2/jquery.uploadify.js"></script>
+<script src="/javascripts/jquery.uploadify-v3.2/swfobject.js"></script>
+<script src="/javascripts/jquery.validate.min.js"></script>
+<script src="/javascripts/messages_bs_zh.js"></script>
+<script src="/javascripts/jquery.metadata.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/bootstrap-datetimepicker.min.js"></script>
+<script src="/javascripts/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="/javascripts/main.js"></script>
+<script></script>
+<%- include footer %>

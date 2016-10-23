@@ -1171,14 +1171,14 @@ td,th{
 .over-long {
     padding: 10px;
     overflow-x: scroll;
-    width: 960px;
+    width: 96%;
     margin-bottom: 10px;
 }
 #num3 .over-long, #Reply .over-long,#num4 .over-long, #Reply_detail_option .over-long, #num5 .over-long,#Purchasing-lists .over-long, #num6 .over-long, #Supplier-help-lists .over-long {
     overflow: auto;
 }
 .over-long table {
-    width: 1500px;
+    width: 1400px;
     max-width: inherit;
 }
 
@@ -1891,4 +1891,8 @@ object {
     .banner-slide .carousel-inner .item img {
         width: 100%;
     }
+}
+
+#num1 .modal-dialog {
+    width: 80%;
 }

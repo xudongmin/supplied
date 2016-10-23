@@ -20,7 +20,7 @@
 		                        <li class="dropdown dropdown-li">
 		                            <a href="javascript:void(0);" class="showloginmodal showmodala dropdown-show mousewheeldisabled">登陆</a>
 		                        </li>
-		                        <li><a href="javascript:void(0);" class="showsystemmodal showmodala">系统公告</a></li>
+		                        <li><a href="/XTpost" class="showsystemmodal" target="_blank">系统公告</a></li>
 		                        <li><a href="javascript:void(0);" class="showhelpmodalpa showmodala helplink">帮助</a></li>
 	                    	</ul>
 						</div>
@@ -46,7 +46,7 @@
 	            <div class="row">
 	                <div class="col-md-4 content-detail notice">
 	                    <h4>采购招标公告</h4>
-	                    <a href="javascript:void(0);" class="showannoumcementmodal showmodala posi-a"><span class="icon-plus more"><i>更多...</i></span></a>
+	                    <a href="/SupplierSignup/zblists" class="posi-a" target="_blank"><span class="icon-plus more"><i>更多...</i></span></a>
 	                    <ul class="list-group content-ul">
 	                    <% zbannunces.forEach(function (zbannunce, index) { %>
 	                    <li><a href="/SupplierSignup/<%= zbannunce._id%>" class="linkshowmodal" target="_blank"><%= zbannunce.zb_project_description %></a></li>
@@ -56,8 +56,7 @@
 	                <div class="col-md-4 content-detail systemup">
 	                    <h4>采购政策</h4>
 	                    <a href="javascript:void(0);" class="showpolicymodal showmodala policylink posi-a"><span class="icon-plus more"><i>更多...</i></span></a>
-	                    <ul class="list-group content-ul">
-	                    </ul>
+	                    
 	                </div>
 	                <div class="col-md-4 content-detail news">
 	                    <h4>比亚迪最新动态</h4>
@@ -100,24 +99,7 @@
 	    </div>
     </div>
     <!-- 模态框-->
-        <!--采购招标公告列表-->
-        <div class="modalvisble showannoumcementmodal showmodal provide-modal annoumcementlist" id="Tender">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <h3 class="modal-title">采购招标公告</h3>
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer purchas-footer">
-                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         <!--登录框-->
         <form id="form" action="">
@@ -236,30 +218,7 @@
                 </div>
             </div>
         </form>
-
-        <!--系统公告列表-->
-        <div class="modalvisble provide-modal showsystemmodal showmodal systemshowlist" id="System-annumce">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <h3 class="modal-title">系统公告</h3>
-                    </div>
-                    <div class="modal-body">
-                        <div class="content-detail">
-                            <ul class="list-group content-ul">
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="modal-footer purchas-footer">
-                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
         <!--反馈回复情况-->
         <div class="modalvisble showreplyquerymodal showmodal provide-modal samenum" id="Reply">
             <div class="modal-dialog">
@@ -397,4 +356,10 @@
 		<script src="/javascripts/bootstrap-datetimepicker.zh-CN.js"></script>
 		<script src="/javascripts/main.js"></script>
 		<script src="/javascripts/indexsrm.js"></script>
+		<script>
+		});
+	</script>
+	<script>
+	console.log(cba);
+	</script>
 <%- include footer %>
